@@ -17,8 +17,8 @@ TRACE_HEADERS_TO_PROPAGATE = [
     'X-B3-Flags'
 ]
 
-@app.route('/service/')
-def hello():
+@app.route('/service/<service_number>')
+def hello(service_number):
     return ('Hello from behind Envoy (SERVICE INSTANCE {})! hostname: {} resolved'
             'hostname: {}\n'.format(os.environ['SERVICE_NAME'], 
                                     socket.gethostname(),
